@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, Code2, Cpu, Globe, Layers, Mail, Terminal, ExternalLink, Monitor, Sun, Moon, MapPin, GraduationCap, Briefcase } from "lucide-react";
+import { ArrowDown, Code2, Cpu, Layers, Mail, Terminal, ExternalLink, Monitor, Sun, Moon, MapPin, GraduationCap, Briefcase } from "lucide-react";
+import Image from "next/image";
+
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -129,11 +131,6 @@ export default function Home() {
     }
   ];
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-  };
-
   const scaleIn = {
     hidden: { scale: 0.8, opacity: 0 },
     visible: { scale: 1, opacity: 1, transition: { duration: 0.6, delay: 0.2 } }
@@ -214,7 +211,7 @@ export default function Home() {
                 Explore Creations
               </motion.a>
               <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} href="#contact" className="border border-slate-300 dark:border-slate-800 font-semibold px-8 py-3.5 rounded-xl text-center">
-                Let's Talk
+                Lets Talk
               </motion.a>
             </div>
           </motion.div>
@@ -230,10 +227,12 @@ export default function Home() {
               whileHover={{ scale: 1.03, rotate: 1 }}
               className="relative w-72 h-72 md:w-96 md:h-96 rounded-2xl overflow-hidden border border-amber-500/30 p-2 bg-white dark:bg-slate-900 shadow-2xl flex-shrink-0"
             >
-              <img 
+              <Image 
                 src="/assets/hero.jpeg" 
                 alt="Nael" 
                 className="w-full h-full object-cover rounded-xl filter contrast-125 shadow-inner"
+                width={384}
+                height={384}
               />
             </motion.div>
           </motion.div>
@@ -246,7 +245,9 @@ export default function Home() {
 
       {/* 2. SECTION: ABOUT & EDUCATION */}
       <section id="about" className="w-full h-screen snap-start flex flex-col justify-center max-w-5xl mx-auto px-8 shrink-0">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeInUp} className="space-y-12">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={{hidden: { opacity: 0, y: 50 },visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} // تأثير easeOut فخم واحترافي متوافق مع TS
+    }
+  }} className="space-y-12">
           <div>
             <div className="flex items-center gap-4 mb-6">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-mono text-amber-500">&lt;01. Overview /&gt;</h2>
@@ -284,13 +285,15 @@ export default function Home() {
       {/* 3. SECTION: SKILLS */}
       <section id="skills" className="w-full h-screen snap-start flex flex-col justify-center bg-slate-100/40 dark:bg-[#0c121e]/40 border-y border-slate-200/50 dark:border-slate-900 shrink-0">
         <div className="max-w-6xl w-full mx-auto px-8">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeInUp} className="flex items-center gap-4 mb-12">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={{hidden: { opacity: 0, y: 50 },visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} // تأثير easeOut فخم واحترافي متوافق مع TS
+    }
+  }} className="flex items-center gap-4 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-mono text-amber-500">&lt;02. Stack /&gt;</h2>
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-1"></div>
           </motion.div>
 
           <motion.div 
-            variants={staggerContainer}
+            variants={{hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }} 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
@@ -299,7 +302,7 @@ export default function Home() {
             {skillCategories.map((cat, i) => (
               <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                variants={{hidden: { opacity: 0, y: 50 }, visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}}
                 whileHover={{ y: -5 }}
                 className="bg-white dark:bg-[#131b2e] p-6 rounded-2xl shadow-sm border border-slate-200/60 dark:border-slate-800/80 transition-all"
               >
@@ -324,7 +327,9 @@ export default function Home() {
 
       {/* 4. SECTION: EXPERIENCE (الجدول الزمني المهني الكامل والمنسق) */}
       <section id="experience" className="w-full h-screen snap-start flex flex-col justify-center max-w-4xl mx-auto px-8 shrink-0 overflow-y-auto md:overflow-visible">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.15 }} variants={fadeInUp} className="py-8 md:py-0">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.15 }} variants={{hidden: { opacity: 0, y: 50 },visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} // تأثير easeOut فخم واحترافي متوافق مع TS
+    }
+  }} className="py-8 md:py-0">
           <div className="flex items-center gap-4 mb-10">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-mono text-amber-500">&lt;03. History /&gt;</h2>
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-1"></div>
@@ -349,13 +354,15 @@ export default function Home() {
       {/* 5. SECTION: PROJECTS */}
       <section id="projects" className="w-full h-screen snap-start flex flex-col justify-center bg-slate-100/40 dark:bg-[#0c121e]/60 border-y border-slate-200/50 dark:border-slate-900 shrink-0">
         <div className="max-w-5xl w-full mx-auto px-8">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeInUp} className="flex items-center gap-4 mb-12">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={{hidden: { opacity: 0, y: 50 },visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} // تأثير easeOut فخم واحترافي متوافق مع TS
+    }
+  }} className="flex items-center gap-4 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight font-mono text-amber-500">&lt;04. Productions /&gt;</h2>
             <div className="h-[1px] bg-slate-200 dark:bg-slate-800 flex-1"></div>
           </motion.div>
 
           <motion.div 
-            variants={staggerContainer}
+            variants={{hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
@@ -364,7 +371,7 @@ export default function Home() {
             {projects.map((proj, i) => (
               <motion.div 
                 key={i} 
-                variants={fadeInUp}
+                variants={{hidden: { opacity: 0, y: 50 }, visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}}
                 whileHover={{ y: -8 }}
                 className="bg-white dark:bg-[#131b2e] p-6 rounded-2xl shadow-md border border-slate-200/60 dark:border-slate-800/80 flex flex-col justify-between group hover:border-amber-500/30 transition-all duration-300"
               >
@@ -398,8 +405,8 @@ export default function Home() {
       {/* 6. SECTION: CONTACT & FOOTER */}
       <section id="contact" className="w-full h-screen snap-start flex flex-col justify-between items-center px-8 relative z-10 shrink-0 pt-24 pb-8">
         <div className="my-auto max-w-3xl text-center space-y-10">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={fadeInUp} className="space-y-4">
-            <p className="text-amber-500 font-mono text-sm font-bold">// Connect</p>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} variants={{hidden: { opacity: 0, y: 50 },visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}} className="space-y-4">
+            <p className="text-amber-500 font-mono text-sm font-bold">{"// Connect"}</p>
             <h2 className="text-4xl md:text-6xl font-black tracking-tight">Initiate A Project</h2>
             <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg leading-relaxed font-normal max-w-2xl mx-auto">
               Currently accepting technical inquiries, global solutions, and full ecosystem deployments from <span className="text-amber-500 font-medium">Khan Younis, Gaza</span> to the world.
@@ -414,7 +421,7 @@ export default function Home() {
             className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
           >
             <motion.a 
-              variants={fadeInUp}
+              variants={{hidden: { opacity: 0, y: 50 }, visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="mailto:dev.nael98@gmail.com" 
@@ -424,7 +431,7 @@ export default function Home() {
             </motion.a>
 
             <motion.a 
-              variants={fadeInUp}
+              variants={{hidden: { opacity: 0, y: 50 }, visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="https://api.whatsapp.com/send?phone=972567466553"
@@ -437,7 +444,7 @@ export default function Home() {
             </motion.a>
 
             <motion.a 
-              variants={fadeInUp}
+              variants={{hidden: { opacity: 0, y: 50 }, visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="https://t.me/engdev"
@@ -450,7 +457,7 @@ export default function Home() {
             </motion.a>
 
             <motion.a 
-              variants={fadeInUp}
+              variants={{hidden: { opacity: 0, y: 50 }, visible: {opacity: 1,y: 0,transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1]} }}}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               href="https://instagram.com/v.i0b"
